@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Beauty in Rose</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="img/beauty-in-rose-logo.svg" alt="Beauty in Rose" class="logo-imagen"></a>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li id="navLogin"><a href="login.html">Iniciar sesión</a></li>
+        <li id="navRegistro"><a href="registro.html" class="btn-nav">Registrarse</a></li>
+        <li id="navUsuario" class="oculto"><span id="saludoUsuario" class="saludo-usuario"></span></li>
+        <li id="navCerrarSesion" class="oculto"><button type="button" class="btn-nav btn-cerrar-sesion" id="btnCerrarSesion">Cerrar sesión</button></li>
+        <li>
+          <button type="button" class="btn-carrito" id="botonCarrito" aria-label="Ver carrito de compras">
+            🛍️<span class="contador-carrito" id="contadorCarrito">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CARRITO (panel lateral) ===== -->
+  <div class="carrito-overlay" id="carritoOverlay"></div>
+  <aside class="panel-carrito" id="panelCarrito" aria-label="Carrito de compras">
+    <div class="carrito-encabezado">
+      <h2>Tu carrito</h2>
+      <button type="button" class="btn-cerrar-carrito" id="cerrarCarrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <ul class="lista-carrito" id="listaCarrito"></ul>
+    <div class="carrito-pie">
+      <p class="carrito-total">Total: <span id="totalCarrito">$0</span></p>
+      <button type="button" class="btn-secundario" id="vaciarCarrito">Vaciar carrito</button>
+      <a href="checkout.html" class="btn-primario">Finalizar compra</a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <section class="pagina-hero">
+      <h1>Blog de Belleza</h1>
+      <p>Tips, tendencias y consejos para tu rutina de maquillaje y cuidado de la piel.</p>
+    </section>
+
+    <section class="seccion-blog">
+      <div class="grid-blog">
+
+        <article class="blog-card">
+          <div class="blog-card-portada">💄</div>
+          <div class="blog-card-cuerpo">
+            <p class="blog-card-fecha">20 de agosto, 2026</p>
+            <h3>5 tips para un maquillaje que dure todo el día</h3>
+            <p>Aprende a preparar tu piel y a fijar tu maquillaje para que se vea impecable desde la mañana hasta la noche.</p>
+            <a href="blog-post.html?id=tips-maquillaje-duradero" class="enlace-leer-mas">Leer más &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-portada">💋</div>
+          <div class="blog-card-cuerpo">
+            <p class="blog-card-fecha">5 de agosto, 2026</p>
+            <h3>Cómo elegir el labial perfecto según tu tono de piel</h3>
+            <p>Descubre qué tonos de labial favorecen más tu piel, ya sea clara, media u oscura.</p>
+            <a href="blog-post.html?id=elegir-labial-segun-tu-piel" class="enlace-leer-mas">Leer más &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-portada">🧴</div>
+          <div class="blog-card-cuerpo">
+            <p class="blog-card-fecha">22 de julio, 2026</p>
+            <h3>Rutina de skincare en 3 pasos para principiantes</h3>
+            <p>No necesitas diez productos para cuidar tu piel. Te contamos una rutina simple para empezar.</p>
+            <a href="blog-post.html?id=rutina-skincare-principiantes" class="enlace-leer-mas">Leer más &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-portada">✨</div>
+          <div class="blog-card-cuerpo">
+            <p class="blog-card-fecha">10 de julio, 2026</p>
+            <h3>Tendencias de maquillaje para esta temporada</h3>
+            <p>Estos son los looks y técnicas que están marcando tendencia esta temporada.</p>
+            <a href="blog-post.html?id=tendencias-maquillaje-temporada" class="enlace-leer-mas">Leer más &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-columna">
+      <h3>Beauty in Rose</h3>
+      <p>Tu tienda de belleza y cuidado personal de confianza.</p>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Contacto</h3>
+      <address>
+        Av. Esquina Blanca 501<br>
+        <a href="mailto:camilavngs@gmail.com">camilavngs@gmail.com</a><br>
+        <a href="tel:+56964071426">+56 9 6407 1426</a>
+      </address>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Síguenos</h3>
+      <ul class="redes-sociales">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Beauty in Rose. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/carrito.js?v=2"></script>
+  <script src="js/autenticacion.js?v=2"></script>
+  <script src="js/formularios.js?v=2"></script>
+</body>
+</html>

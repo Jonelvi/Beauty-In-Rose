@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty in Rose | Tienda de Belleza</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="img/beauty-in-rose-logo.svg" alt="Beauty in Rose" class="logo-imagen"></a>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li id="navLogin"><a href="login.html">Iniciar sesión</a></li>
+        <li id="navRegistro"><a href="registro.html" class="btn-nav">Registrarse</a></li>
+        <li id="navUsuario" class="oculto"><span id="saludoUsuario" class="saludo-usuario"></span></li>
+        <li id="navCerrarSesion" class="oculto"><button type="button" class="btn-nav btn-cerrar-sesion" id="btnCerrarSesion">Cerrar sesión</button></li>
+        <li>
+          <button type="button" class="btn-carrito" id="botonCarrito" aria-label="Ver carrito de compras">
+            🛍️<span class="contador-carrito" id="contadorCarrito">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CARRITO (panel lateral) ===== -->
+  <div class="carrito-overlay" id="carritoOverlay"></div>
+  <aside class="panel-carrito" id="panelCarrito" aria-label="Carrito de compras">
+    <div class="carrito-encabezado">
+      <h2>Tu carrito</h2>
+      <button type="button" class="btn-cerrar-carrito" id="cerrarCarrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <ul class="lista-carrito" id="listaCarrito"></ul>
+    <div class="carrito-pie">
+      <p class="carrito-total">Total: <span id="totalCarrito">$0</span></p>
+      <button type="button" class="btn-secundario" id="vaciarCarrito">Vaciar carrito</button>
+      <a href="checkout.html" class="btn-primario">Finalizar compra</a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <!-- Hero / Banner principal -->
+    <section class="hero" id="inicio">
+      <div class="hero-texto">
+        <h1>Realza tu belleza natural</h1>
+        <p>Descubre nuestra colección de cosméticos y cuidado de la piel pensada para ti.</p>
+        <a href="productos.html" class="btn-primario">Ver productos</a>
+      </div>
+      <div class="hero-imagen">
+        <a href="producto.html?id=labial-mate-rose">
+          <img src="img/productos/labial-mate-rose.jpg" alt="Labial Mate Rose, nuestro producto más popular">
+        </a>
+        <span class="etiqueta-popular">⭐ Producto más popular</span>
+      </div>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="productos-destacados">
+      <h2>Productos destacados</h2>
+
+      <div class="grid-productos">
+        <article class="producto-card">
+          <a href="producto.html?id=labial-mate-rose"><img src="img/productos/labial-mate-rose.jpg" alt="Labial mate Rose"></a>
+          <a href="producto.html?id=labial-mate-rose"><h3>Labial Mate Rose</h3></a>
+          <p>Larga duración y acabado aterciopelado.</p>
+          <p class="precio">$8.990</p>
+          <button
+            type="button"
+            class="btn-secundario btn-agregar-carro"
+            data-id="labial-mate-rose"
+            data-nombre="Labial Mate Rose"
+            data-precio="8990"
+            data-imagen="img/productos/labial-mate-rose.jpg">
+            Agregar al carro
+          </button>
+        </article>
+
+        <article class="producto-card">
+          <a href="producto.html?id=serum-facial-hidratante"><img src="img/productos/serum-facial-hidratante.jpg" alt="Sérum facial"></a>
+          <a href="producto.html?id=serum-facial-hidratante"><h3>Sérum Facial Hidratante</h3></a>
+          <p>Con ácido hialurónico para una piel radiante.</p>
+          <p class="precio">$12.990</p>
+          <button
+            type="button"
+            class="btn-secundario btn-agregar-carro"
+            data-id="serum-facial-hidratante"
+            data-nombre="Sérum Facial Hidratante"
+            data-precio="12990"
+            data-imagen="img/productos/serum-facial-hidratante.jpg">
+            Agregar al carro
+          </button>
+        </article>
+
+        <article class="producto-card">
+          <a href="producto.html?id=paleta-de-sombras"><img src="img/productos/paleta-de-sombras.jpg" alt="Paleta de sombras"></a>
+          <a href="producto.html?id=paleta-de-sombras"><h3>Paleta de Sombras</h3></a>
+          <p>Tonos rosados y neutros para todo look.</p>
+          <p class="precio">$15.990</p>
+          <button
+            type="button"
+            class="btn-secundario btn-agregar-carro"
+            data-id="paleta-de-sombras"
+            data-nombre="Paleta de Sombras"
+            data-precio="15990"
+            data-imagen="img/productos/paleta-de-sombras.jpg">
+            Agregar al carro
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ofertas del día -->
+    <section class="ofertas-dia">
+      <h2>Ofertas del día</h2>
+      <p class="subtitulo-ofertas">¡Solo por hoy! Aprovecha estos descuentos antes de que se acaben.</p>
+
+      <div class="grid-productos">
+        <article class="producto-card oferta-card">
+          <span class="etiqueta-descuento">-25%</span>
+          <a href="producto.html?id=paleta-de-sombras"><img src="img/productos/paleta-de-sombras.jpg" alt="Paleta de sombras en oferta"></a>
+          <a href="producto.html?id=paleta-de-sombras"><h3>Paleta de Sombras</h3></a>
+          <p>Tonos rosados y neutros para todo look.</p>
+          <p class="precio">
+            <span class="precio-anterior">$15.990</span>
+            <span class="precio-oferta">$11.990</span>
+          </p>
+          <button
+            type="button"
+            class="btn-secundario btn-agregar-carro"
+            data-id="paleta-de-sombras"
+            data-nombre="Paleta de Sombras"
+            data-precio="11990"
+            data-imagen="img/productos/paleta-de-sombras.jpg">
+            Agregar al carro
+          </button>
+        </article>
+
+        <article class="producto-card oferta-card">
+          <span class="etiqueta-descuento">-25%</span>
+          <a href="producto.html?id=rubor-en-polvo-rosa"><img src="img/productos/rubor-en-polvo-rosa.jpg" alt="Rubor en polvo rosa en oferta"></a>
+          <a href="producto.html?id=rubor-en-polvo-rosa"><h3>Rubor en Polvo Rosa</h3></a>
+          <p>Un toque natural y luminoso para tus mejillas.</p>
+          <p class="precio">
+            <span class="precio-anterior">$9.990</span>
+            <span class="precio-oferta">$7.490</span>
+          </p>
+          <button
+            type="button"
+            class="btn-secundario btn-agregar-carro"
+            data-id="rubor-en-polvo-rosa"
+            data-nombre="Rubor en Polvo Rosa"
+            data-precio="7490"
+            data-imagen="img/productos/rubor-en-polvo-rosa.jpg">
+            Agregar al carro
+          </button>
+        </article>
+
+        <article class="producto-card oferta-card">
+          <span class="etiqueta-descuento">-25%</span>
+          <a href="producto.html?id=bruma-facial-de-rosas"><img src="img/productos/bruma-facial-de-rosas.jpg" alt="Bruma facial de rosas en oferta"></a>
+          <a href="producto.html?id=bruma-facial-de-rosas"><h3>Bruma Facial de Rosas</h3></a>
+          <p>Refresca e ilumina tu piel en segundos.</p>
+          <p class="precio">
+            <span class="precio-anterior">$8.490</span>
+            <span class="precio-oferta">$6.390</span>
+          </p>
+          <button
+            type="button"
+            class="btn-secundario btn-agregar-carro"
+            data-id="bruma-facial-de-rosas"
+            data-nombre="Bruma Facial de Rosas"
+            data-precio="6390"
+            data-imagen="img/productos/bruma-facial-de-rosas.jpg">
+            Agregar al carro
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <h2>Únete a nuestro club de belleza</h2>
+      <p>Recibe descuentos exclusivos y novedades en tu correo.</p>
+      <form class="form-newsletter" id="formNewsletter" autocomplete="on">
+        <label for="correoNewsletter" class="sr-only">Correo electrónico</label>
+        <input
+          type="email"
+          id="correoNewsletter"
+          name="correoNewsletter"
+          placeholder="Ingresa tu correo electrónico"
+          autocomplete="email"
+          required>
+        <button type="submit" class="btn-primario">Suscribirme</button>
+      </form>
+      <p class="mensaje-error" id="mensajeNewsletter"></p>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-columna">
+      <h3>Beauty in Rose</h3>
+      <p>Tu tienda de belleza y cuidado personal de confianza.</p>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Contacto</h3>
+      <address>
+        Av. Esquina Blanca 501<br>
+        <a href="mailto:camilavngs@gmail.com">camilavngs@gmail.com</a><br>
+        <a href="tel:+56964071426">+56 9 6407 1426</a>
+      </address>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Síguenos</h3>
+      <ul class="redes-sociales">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Beauty in Rose. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/carrito.js?v=2"></script>
+  <script src="js/autenticacion.js?v=2"></script>
+  <script src="js/formularios.js?v=2"></script>
+</body>
+</html>

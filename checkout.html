@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar compra | Beauty in Rose</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="img/beauty-in-rose-logo.svg" alt="Beauty in Rose" class="logo-imagen"></a>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li id="navLogin"><a href="login.html">Iniciar sesión</a></li>
+        <li id="navRegistro"><a href="registro.html" class="btn-nav">Registrarse</a></li>
+        <li id="navUsuario" class="oculto"><span id="saludoUsuario" class="saludo-usuario"></span></li>
+        <li id="navCerrarSesion" class="oculto"><button type="button" class="btn-nav btn-cerrar-sesion" id="btnCerrarSesion">Cerrar sesión</button></li>
+        <li>
+          <button type="button" class="btn-carrito" id="botonCarrito" aria-label="Ver carrito de compras">
+            🛍️<span class="contador-carrito" id="contadorCarrito">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CARRITO (panel lateral) ===== -->
+  <div class="carrito-overlay" id="carritoOverlay"></div>
+  <aside class="panel-carrito" id="panelCarrito" aria-label="Carrito de compras">
+    <div class="carrito-encabezado">
+      <h2>Tu carrito</h2>
+      <button type="button" class="btn-cerrar-carrito" id="cerrarCarrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <ul class="lista-carrito" id="listaCarrito"></ul>
+    <div class="carrito-pie">
+      <p class="carrito-total">Total: <span id="totalCarrito">$0</span></p>
+      <button type="button" class="btn-secundario" id="vaciarCarrito">Vaciar carrito</button>
+      <a href="checkout.html" class="btn-primario">Finalizar compra</a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <section class="pagina-hero">
+      <h1>Finalizar Compra</h1>
+      <p>Revisa tu pedido y completa tus datos de envío y pago.</p>
+    </section>
+
+    <!-- Vista: carrito vacío -->
+    <section id="checkoutVacio" class="checkout-vacio oculto">
+      <p>Tu carrito está vacío. Agrega productos antes de continuar con la compra.</p>
+      <a href="productos.html" class="btn-primario">Ver productos</a>
+    </section>
+
+    <!-- Vista: confirmación de pedido -->
+    <section id="checkoutConfirmacion" class="checkout-confirmacion oculto">
+      <div class="confirmacion-icono">✓</div>
+      <h2>¡Gracias por tu compra!</h2>
+      <p>Tu pedido <strong id="numeroPedido"></strong> fue confirmado correctamente.</p>
+      <p>Te enviaremos un correo con el detalle y el seguimiento de tu envío.</p>
+      <a href="index.html" class="btn-primario">Volver al inicio</a>
+    </section>
+
+    <!-- Vista: checkout -->
+    <section class="seccion-checkout" id="checkoutContenido">
+
+      <!-- Resumen del pedido -->
+      <article class="resumen-pedido">
+        <h2>Resumen del pedido</h2>
+        <ul class="lista-resumen" id="listaResumenCheckout"></ul>
+        <div class="resumen-totales">
+          <p><span>Subtotal</span><span id="subtotalCheckout">$0</span></p>
+          <p><span>Envío</span><span id="envioCheckout">$3.000</span></p>
+          <p class="resumen-total-final"><span>Total</span><span id="totalCheckout">$0</span></p>
+        </div>
+      </article>
+
+      <!-- Formulario de envío y pago -->
+      <article class="formulario-checkout">
+        <form id="formCheckout" autocomplete="on" novalidate>
+
+          <h2>Datos de envío</h2>
+
+          <label for="nombreCheckout">Nombre completo</label>
+          <input type="text" id="nombreCheckout" name="nombreCheckout" autocomplete="name" placeholder="Ej: María González" required>
+
+          <label for="correoCheckout">Correo electrónico</label>
+          <input type="email" id="correoCheckout" name="correoCheckout" autocomplete="email" placeholder="Ej: maria@correo.com" required>
+
+          <label for="telefonoCheckout">Teléfono</label>
+          <input type="tel" id="telefonoCheckout" name="telefonoCheckout" autocomplete="tel" placeholder="Ej: +56 9 1234 5678" required>
+
+          <label for="direccionCheckout">Dirección</label>
+          <input type="text" id="direccionCheckout" name="direccionCheckout" autocomplete="street-address" placeholder="Calle, número, depto" required>
+
+          <div class="fila-formulario">
+            <div>
+              <label for="comunaCheckout">Comuna</label>
+              <input type="text" id="comunaCheckout" name="comunaCheckout" autocomplete="address-level2" placeholder="Ej: Providencia" required>
+            </div>
+            <div>
+              <label for="ciudadCheckout">Ciudad</label>
+              <input type="text" id="ciudadCheckout" name="ciudadCheckout" autocomplete="address-level1" placeholder="Ej: Santiago" required>
+            </div>
+          </div>
+
+          <h2>Método de pago</h2>
+
+          <div class="opciones-pago">
+            <label class="opcion-pago">
+              <input type="radio" name="metodoPago" value="tarjeta" checked>
+              Tarjeta de crédito o débito
+            </label>
+            <label class="opcion-pago">
+              <input type="radio" name="metodoPago" value="efectivo">
+              Efectivo contra entrega
+            </label>
+          </div>
+
+          <div id="camposTarjeta" class="campos-tarjeta">
+            <label for="numeroTarjeta">Número de tarjeta</label>
+            <input type="text" id="numeroTarjeta" name="numeroTarjeta" autocomplete="cc-number" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19">
+
+            <div class="fila-formulario">
+              <div>
+                <label for="expiracionTarjeta">Vencimiento (MM/AA)</label>
+                <input type="text" id="expiracionTarjeta" name="expiracionTarjeta" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5">
+              </div>
+              <div>
+                <label for="cvvTarjeta">CVV</label>
+                <input type="text" id="cvvTarjeta" name="cvvTarjeta" autocomplete="cc-csc" inputmode="numeric" placeholder="123" maxlength="4">
+              </div>
+            </div>
+            <p class="nota-checkout">Esto es una simulación de pago con fines educativos. No se procesa ningún cobro real.</p>
+          </div>
+
+          <button type="submit" class="btn-primario">Confirmar pedido</button>
+          <p class="mensaje-error" id="mensajeCheckoutError" role="alert"></p>
+        </form>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-columna">
+      <h3>Beauty in Rose</h3>
+      <p>Tu tienda de belleza y cuidado personal de confianza.</p>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Contacto</h3>
+      <address>
+        Av. Esquina Blanca 501<br>
+        <a href="mailto:camilavngs@gmail.com">camilavngs@gmail.com</a><br>
+        <a href="tel:+56964071426">+56 9 6407 1426</a>
+      </address>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Síguenos</h3>
+      <ul class="redes-sociales">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Beauty in Rose. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/carrito.js?v=2"></script>
+  <script src="js/autenticacion.js?v=2"></script>
+  <script src="js/finalizar-compra.js?v=2"></script>
+  <script src="js/formularios.js?v=2"></script>
+</body>
+</html>

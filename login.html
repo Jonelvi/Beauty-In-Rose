@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | Beauty in Rose</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="img/beauty-in-rose-logo.svg" alt="Beauty in Rose" class="logo-imagen"></a>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li id="navLogin"><a href="login.html" class="active">Iniciar sesión</a></li>
+        <li id="navRegistro"><a href="registro.html" class="btn-nav">Registrarse</a></li>
+        <li id="navUsuario" class="oculto"><span id="saludoUsuario" class="saludo-usuario"></span></li>
+        <li id="navCerrarSesion" class="oculto"><button type="button" class="btn-nav btn-cerrar-sesion" id="btnCerrarSesion">Cerrar sesión</button></li>
+        <li>
+          <button type="button" class="btn-carrito" id="botonCarrito" aria-label="Ver carrito de compras">
+            🛍️<span class="contador-carrito" id="contadorCarrito">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CARRITO (panel lateral) ===== -->
+  <div class="carrito-overlay" id="carritoOverlay"></div>
+  <aside class="panel-carrito" id="panelCarrito" aria-label="Carrito de compras">
+    <div class="carrito-encabezado">
+      <h2>Tu carrito</h2>
+      <button type="button" class="btn-cerrar-carrito" id="cerrarCarrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <ul class="lista-carrito" id="listaCarrito"></ul>
+    <div class="carrito-pie">
+      <p class="carrito-total">Total: <span id="totalCarrito">$0</span></p>
+      <button type="button" class="btn-secundario" id="vaciarCarrito">Vaciar carrito</button>
+      <a href="checkout.html" class="btn-primario">Finalizar compra</a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section class="contenedor-auth">
+      <article class="tarjeta-auth">
+        <h1>Inicia sesión</h1>
+        <p class="subtitulo-auth">Ingresa con tu cuenta de Beauty in Rose.</p>
+
+        <form id="formLogin" autocomplete="on" novalidate>
+          <label for="correoLogin">Correo electrónico</label>
+          <input
+            type="email"
+            id="correoLogin"
+            name="correoLogin"
+            autocomplete="email"
+            placeholder="Ej: maria@correo.com"
+            required>
+
+          <label for="passwordLogin">Contraseña</label>
+          <input
+            type="password"
+            id="passwordLogin"
+            name="passwordLogin"
+            autocomplete="current-password"
+            placeholder="Ingresa tu contraseña"
+            required>
+
+          <div class="campo-checkbox">
+            <input type="checkbox" id="recordarLogin" name="recordarLogin">
+            <label for="recordarLogin">Recordarme en este equipo</label>
+          </div>
+
+          <button type="submit" class="btn-primario">Iniciar sesión</button>
+          <p class="mensaje-error" id="mensajeLoginError" role="alert"></p>
+        </form>
+
+        <p class="enlace-auth">¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+      </article>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-columna">
+      <h3>Beauty in Rose</h3>
+      <p>Tu tienda de belleza y cuidado personal de confianza.</p>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Contacto</h3>
+      <address>
+        Av. Esquina Blanca 501<br>
+        <a href="mailto:camilavngs@gmail.com">camilavngs@gmail.com</a><br>
+        <a href="tel:+56964071426">+56 9 6407 1426</a>
+      </address>
+    </div>
+
+    <div class="footer-columna">
+      <h3>Síguenos</h3>
+      <ul class="redes-sociales">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Beauty in Rose. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/carrito.js?v=2"></script>
+  <script src="js/autenticacion.js?v=2"></script>
+  <script src="js/formularios.js?v=2"></script>
+</body>
+</html>

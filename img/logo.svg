@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g>
+    <path d="M100,105 C78,85 68,50 100,12 C132,50 122,85 100,105 Z" fill="#f4b6cf" stroke="#c8578a" stroke-width="1.5" transform="rotate(0 100 105)"/>
+    <path d="M100,105 C78,85 68,50 100,12 C132,50 122,85 100,105 Z" fill="#f2a6c4" stroke="#c8578a" stroke-width="1.5" transform="rotate(60 100 105)"/>
+    <path d="M100,105 C78,85 68,50 100,12 C132,50 122,85 100,105 Z" fill="#f4b6cf" stroke="#c8578a" stroke-width="1.5" transform="rotate(120 100 105)"/>
+    <path d="M100,105 C78,85 68,50 100,12 C132,50 122,85 100,105 Z" fill="#f2a6c4" stroke="#c8578a" stroke-width="1.5" transform="rotate(180 100 105)"/>
+    <path d="M100,105 C78,85 68,50 100,12 C132,50 122,85 100,105 Z" fill="#f4b6cf" stroke="#c8578a" stroke-width="1.5" transform="rotate(240 100 105)"/>
+    <path d="M100,105 C78,85 68,50 100,12 C132,50 122,85 100,105 Z" fill="#f2a6c4" stroke="#c8578a" stroke-width="1.5" transform="rotate(300 100 105)"/>
+  </g>
+
+  <g stroke="#8a2856" stroke-width="2" stroke-linecap="round">
+    <line x1="100" y1="105" x2="88" y2="72"/>
+    <line x1="100" y1="105" x2="96" y2="65"/>
+    <line x1="100" y1="105" x2="104" y2="65"/>
+    <line x1="100" y1="105" x2="112" y2="72"/>
+    <ellipse cx="88" cy="70" rx="3.5" ry="6" fill="#8a2856"/>
+    <ellipse cx="96" cy="63" rx="3.5" ry="6" fill="#8a2856"/>
+    <ellipse cx="104" cy="63" rx="3.5" ry="6" fill="#8a2856"/>
+    <ellipse cx="112" cy="70" rx="3.5" ry="6" fill="#8a2856"/>
+  </g>
+
+  <circle cx="100" cy="105" r="5" fill="#c8578a"/>
+</svg>

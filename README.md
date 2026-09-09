@@ -6,18 +6,15 @@ Sitio 100% estático hecho con **HTML5, CSS3 y JavaScript** (sin frameworks ni b
 
 ## Páginas del sitio
 
-| Página | Archivo | Descripción |
-|---|---|---|
-| Inicio | `index.html` | Producto más popular, productos destacados, video de maquillaje, ofertas del día y newsletter |
-| Productos | `productos.html` | Catálogo completo, agrupado por categoría |
-| Detalle de producto | `producto.html` | Ficha individual de un producto (`producto.html?id=...`) |
-| Blog | `blog.html` | Listado de artículos de belleza |
-| Detalle de artículo | `blog-post.html` | Artículo completo (`blog-post.html?id=...`) |
-| Nosotros | `nosotros.html` | Historia, misión, visión y equipo de desarrollo |
-| Contacto | `contacto.html` | Formulario de contacto e información de la tienda |
-| Iniciar sesión | `login.html` | Login con validación |
-| Registrarse | `registro.html` | Creación de cuenta con validación |
-| Finalizar compra | `checkout.html` | Resumen del pedido, datos de envío y pago |
+- **Inicio** (`index.html`): producto más popular, productos destacados, video de maquillaje, ofertas del día y newsletter.
+- **Productos** (`productos.html`): catálogo completo, agrupado por categoría.
+- **Detalle de producto** (`producto.html`): ficha individual de un producto.
+- **Blog** (`blog.html`): listado de artículos de belleza.
+- **Detalle de artículo** (`blog-post.html`): artículo completo.
+- **Nosotros** (`nosotros.html`): historia, misión, visión y equipo de desarrollo.
+- **Contacto** (`contacto.html`): formulario de contacto e información de la tienda.
+- **Iniciar sesión** (`login.html`) y **Registrarse** (`registro.html`): con validación en JavaScript.
+- **Finalizar compra** (`checkout.html`): resumen del pedido, datos de envío y pago.
 
 ## Funcionalidades principales
 
@@ -29,6 +26,7 @@ Sitio 100% estático hecho con **HTML5, CSS3 y JavaScript** (sin frameworks ni b
 - **Checkout simulado**: formulario de envío y método de pago (tarjeta o efectivo). No procesa pagos reales, es solo para fines educativos.
 - **Formularios validados con JS**: newsletter, contacto, registro, login y checkout, todos con mensajes de error claros.
 - **Blog**: artículos de tips de belleza.
+- **Menú hamburguesa**: en celular, el menú se colapsa en un botón; el carrito queda siempre visible.
 - **Diseño responsivo**: se adapta a celular, tablet y escritorio.
 
 ## Estructura de carpetas
@@ -46,6 +44,7 @@ beauty-in-rose/
 │   └── logo.svg, beauty-in-rose-logo.svg
 └── js/
     ├── carrito.js               → lógica del carrito de compras
+    ├── menu.js                  → menú hamburguesa en celular
     ├── autenticacion.js         → registro, login y sesión de usuario
     ├── finalizar-compra.js      → resumen del pedido y validación del checkout
     ├── formularios.js           → validación del newsletter y el contacto
@@ -54,16 +53,6 @@ beauty-in-rose/
     ├── datos-blog.js            → contenido de los artículos del blog
     └── blog-detalle.js          → arma el artículo según la URL (?id=...)
 ```
-
-## Cómo revisar el sitio
-
-Como es un sitio estático, solo necesitas abrir `index.html` en el navegador. Para que el carrito y la sesión funcionen igual que en la demo (y evitar restricciones del navegador al leer archivos locales), es recomendable abrirlo con un servidor simple, por ejemplo:
-
-```bash
-python -m http.server 5500
-```
-
-y luego entrar a `http://localhost:5500` en el navegador.
 
 ## Equipo de desarrollo
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crear cuenta | Beauty in Rose</title>
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=14">
+  <link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -15,12 +15,7 @@
       <a href="index.html"><img src="img/beauty-in-rose-logo.svg" alt="Beauty in Rose" class="logo-imagen"></a>
     </div>
 
-    <button type="button" class="btn-hamburguesa" id="botonMenu" aria-label="Abrir menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
+    <div class="acciones-header">
     <nav class="nav">
       <ul id="listaNav">
         <li><a href="index.html">Inicio</a></li>
@@ -32,13 +27,19 @@
         <li id="navRegistro"><a href="registro.html" class="btn-nav active">Registrarse</a></li>
         <li id="navUsuario" class="oculto"><span id="saludoUsuario" class="saludo-usuario"></span></li>
         <li id="navCerrarSesion" class="oculto"><button type="button" class="btn-nav btn-cerrar-sesion" id="btnCerrarSesion">Cerrar sesión</button></li>
-        <li>
-          <button type="button" class="btn-carrito" id="botonCarrito" aria-label="Ver carrito de compras">
-            🛍️<span class="contador-carrito" id="contadorCarrito">0</span>
-          </button>
-        </li>
       </ul>
     </nav>
+
+      <button type="button" class="btn-carrito" id="botonCarrito" aria-label="Ver carrito de compras">
+        🛍️<span class="contador-carrito" id="contadorCarrito">0</span>
+      </button>
+
+      <button type="button" class="btn-hamburguesa" id="botonMenu" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    </div>
   </header>
 
   <!-- ===== CARRITO (panel lateral) ===== -->

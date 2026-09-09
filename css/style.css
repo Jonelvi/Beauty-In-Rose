@@ -106,6 +106,14 @@ img {
   width: auto;
 }
 
+/* Agrupa el menu, el carrito y el boton hamburguesa */
+.acciones-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 /* Boton hamburguesa (solo se muestra en movil) */
 .btn-hamburguesa {
   display: none;
@@ -1404,6 +1412,11 @@ img {
 
   .logo-imagen {
     height: 36px;
+  }
+
+  .acciones-header {
+    gap: 14px;
+    flex-wrap: nowrap;
   }
 
   .btn-hamburguesa {

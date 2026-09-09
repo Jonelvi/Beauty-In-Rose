@@ -106,6 +106,44 @@ img {
   width: auto;
 }
 
+/* Boton hamburguesa (solo se muestra en movil) */
+.btn-hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 34px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-hamburguesa span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--rosa-oscuro);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.btn-hamburguesa span + span {
+  margin-top: 6px;
+}
+
+.btn-hamburguesa.abierto span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.btn-hamburguesa.abierto span:nth-child(2) {
+  opacity: 0;
+}
+
+.btn-hamburguesa.abierto span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 .nav ul {
   display: flex;
   align-items: center;
@@ -1358,8 +1396,47 @@ img {
    ========================================= */
 @media (max-width: 768px) {
   .header {
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    text-align: left;
+    position: relative;
+  }
+
+  .logo-imagen {
+    height: 36px;
+  }
+
+  .btn-hamburguesa {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--blanco);
+    padding: 16px 6% 24px;
+    box-shadow: 0 12px 20px var(--sombra);
+  }
+
+  .nav ul.menu-abierto {
+    display: flex;
+  }
+
+  .nav ul li {
+    width: 100%;
+  }
+
+  .nav a,
+  .nav .btn-carrito,
+  .nav .btn-cerrar-sesion {
+    width: 100%;
   }
 
   .hero {

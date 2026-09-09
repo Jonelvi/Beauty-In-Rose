@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos | Beauty in Rose</title>
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
 
@@ -15,8 +15,14 @@
       <a href="index.html"><img src="img/beauty-in-rose-logo.svg" alt="Beauty in Rose" class="logo-imagen"></a>
     </div>
 
+    <button type="button" class="btn-hamburguesa" id="botonMenu" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <nav class="nav">
-      <ul>
+      <ul id="listaNav">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="productos.html" class="active">Productos</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -209,6 +215,7 @@
     <p class="footer-copy">&copy; 2026 Beauty in Rose. Todos los derechos reservados.</p>
   </footer>
 
+  <script src="js/menu.js"></script>
   <script src="js/carrito.js?v=2"></script>
   <script src="js/autenticacion.js?v=2"></script>
   <script src="js/formularios.js?v=2"></script>

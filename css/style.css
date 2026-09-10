@@ -986,7 +986,8 @@ img {
 
 .formulario-contacto label,
 .tarjeta-auth label,
-.formulario-checkout label {
+.formulario-checkout label,
+.formulario-admin label {
   font-weight: 600;
   margin-bottom: 6px;
   font-size: 0.92rem;
@@ -996,7 +997,10 @@ img {
 .formulario-contacto select,
 .formulario-contacto textarea,
 .tarjeta-auth input,
-.formulario-checkout input {
+.formulario-checkout input,
+.formulario-admin input,
+.formulario-admin select,
+.formulario-admin textarea {
   padding: 10px 14px;
   border: 2px solid var(--rosa);
   border-radius: 10px;
@@ -1005,13 +1009,17 @@ img {
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s;
+  width: 100%;
 }
 
 .formulario-contacto input:focus,
 .formulario-contacto select:focus,
 .formulario-contacto textarea:focus,
 .tarjeta-auth input:focus,
-.formulario-checkout input:focus {
+.formulario-checkout input:focus,
+.formulario-admin input:focus,
+.formulario-admin select:focus,
+.formulario-admin textarea:focus {
   border-color: var(--rosa-oscuro);
 }
 
@@ -1400,9 +1408,146 @@ img {
 }
 
 /* =========================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================= */
+.seccion-admin {
+  padding: 20px 6% 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.seccion-admin h2 {
+  color: var(--rosa-oscuro);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.tabla-admin-wrapper {
+  background-color: var(--blanco);
+  border: 1px solid var(--rosa-claro);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px var(--sombra);
+  padding: 10px 20px;
+  overflow-x: auto;
+}
+
+.tabla-admin {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--rosa-claro);
+  white-space: nowrap;
+}
+
+.tabla-admin th {
+  color: var(--rosa-oscuro);
+}
+
+.tabla-admin select {
+  padding: 6px 10px;
+  border: 2px solid var(--rosa);
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.admin-vacio {
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.lista-productos-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-producto-fila {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--blanco);
+  border: 1px solid var(--rosa-claro);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px var(--sombra);
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-producto-fila img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.admin-producto-info {
+  flex: 1;
+  min-width: 220px;
+}
+
+.admin-producto-info h3 {
+  color: var(--rosa-oscuro);
+  margin-bottom: 10px;
+}
+
+.admin-producto-info label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.admin-input-precio,
+.admin-input-descripcion {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 12px;
+  border: 2px solid var(--rosa);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.admin-input-descripcion {
+  resize: vertical;
+}
+
+.admin-producto-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.formulario-admin {
+  background-color: var(--blanco);
+  border: 1px solid var(--rosa-claro);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px var(--sombra);
+  padding: 30px;
+  max-width: 520px;
+}
+
+.formulario-admin form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
+  .admin-producto-fila {
+    flex-direction: column;
+  }
+
   .header {
     justify-content: space-between;
     flex-wrap: nowrap;

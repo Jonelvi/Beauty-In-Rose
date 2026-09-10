@@ -71,10 +71,85 @@ var PRODUCTOS = [
   }
 ];
 
+var PRODUCTOS_NUEVOS_KEY = "beautyInRoseProductosNuevos";
+var PRODUCTOS_CAMBIOS_KEY = "beautyInRoseProductosCambios";
+
+/* Productos agregados desde el panel de administracion */
+function obtenerProductosNuevos() {
+  var datos = localStorage.getItem(PRODUCTOS_NUEVOS_KEY);
+  if (datos === null) {
+    return [];
+  }
+  return JSON.parse(datos);
+}
+
+function guardarProductosNuevos(lista) {
+  localStorage.setItem(PRODUCTOS_NUEVOS_KEY, JSON.stringify(lista));
+}
+
+/* Ediciones (precio, nombre, descripcion, imagen) sobre productos ya existentes */
+function obtenerCambiosProductos() {
+  var datos = localStorage.getItem(PRODUCTOS_CAMBIOS_KEY);
+  if (datos === null) {
+    return {};
+  }
+  return JSON.parse(datos);
+}
+
+function guardarCambiosProductos(cambios) {
+  localStorage.setItem(PRODUCTOS_CAMBIOS_KEY, JSON.stringify(cambios));
+}
+
+/* Junta el catalogo base con los cambios y los productos nuevos del admin */
+function obtenerTodosLosProductos() {
+  var cambios = obtenerCambiosProductos();
+  var todos = [];
+  var i;
+
+  for (i = 0; i < PRODUCTOS.length; i++) {
+    var base = PRODUCTOS[i];
+    var cambio = cambios[base.id];
+
+    if (cambio === undefined) {
+      todos.push(base);
+    } else {
+      todos.push({
+        id: base.id,
+        nombre: cambio.nombre,
+        precio: cambio.precio,
+        imagen: cambio.imagen,
+        categoria: base.categoria,
+        descripcion: cambio.descripcion
+      });
+    }
+  }
+
+  var nuevos = obtenerProductosNuevos();
+  for (i = 0; i < nuevos.length; i++) {
+    todos.push(nuevos[i]);
+  }
+
+  return todos;
+}
+
+function generarIdProducto(nombre) {
+  var id = nombre.toLowerCase().trim();
+  id = id.replace(/[áàä]/g, "a");
+  id = id.replace(/[éèë]/g, "e");
+  id = id.replace(/[íìï]/g, "i");
+  id = id.replace(/[óòö]/g, "o");
+  id = id.replace(/[úùü]/g, "u");
+  id = id.replace(/ñ/g, "n");
+  id = id.replace(/[^a-z0-9]+/g, "-");
+  id = id.replace(/^-+/, "").replace(/-+$/, "");
+  return id;
+}
+
 function buscarProductoPorId(id) {
-  for (var i = 0; i < PRODUCTOS.length; i++) {
-    if (PRODUCTOS[i].id === id) {
-      return PRODUCTOS[i];
+  var todos = obtenerTodosLosProductos();
+  for (var i = 0; i < todos.length; i++) {
+    if (todos[i].id === id) {
+      return todos[i];
     }
   }
   return null;

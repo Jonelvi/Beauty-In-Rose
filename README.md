@@ -15,6 +15,7 @@ Sitio 100% estático hecho con **HTML5, CSS3 y JavaScript** (sin frameworks ni b
 - **Contacto** (`contacto.html`): formulario de contacto e información de la tienda.
 - **Iniciar sesión** (`login.html`) y **Registrarse** (`registro.html`): con validación en JavaScript.
 - **Finalizar compra** (`checkout.html`): resumen del pedido, datos de envío y pago.
+- **Panel de Administración** (`admin.html`): gestión de usuarios/vendedores y de productos (solo accesible para la cuenta de administrador).
 
 ## Funcionalidades principales
 
@@ -28,13 +29,24 @@ Sitio 100% estático hecho con **HTML5, CSS3 y JavaScript** (sin frameworks ni b
 - **Blog**: artículos de tips de belleza.
 - **Menú hamburguesa**: en celular, el menú se colapsa en un botón; el carrito queda siempre visible.
 - **Diseño responsivo**: se adapta a celular, tablet y escritorio.
+- **Panel de administración**: cambiar el rol de los usuarios (Cliente/Vendedor), editar precio y descripción de productos, y agregar productos nuevos que aparecen automáticamente en el catálogo.
+
+### Cómo entrar como administrador
+
+En `login.html`, ingresa con:
+
+- **Correo:** `admin@beautyinrose.cl`
+- **Contraseña:** `Admin1234`
+
+Esto redirige directo al panel de administración (`admin.html`). Ahí no se ve el ícono normal de "Iniciar sesión", sino el enlace **Admin** en el menú.
 
 ## Estructura de carpetas
 
 ```
 beauty-in-rose/
 ├── index.html, productos.html, producto.html, blog.html, blog-post.html,
-│   nosotros.html, contacto.html, login.html, registro.html, checkout.html
+│   nosotros.html, contacto.html, login.html, registro.html, checkout.html,
+│   admin.html
 ├── css/
 │   └── style.css              → todos los estilos del sitio
 ├── img/
@@ -45,11 +57,13 @@ beauty-in-rose/
 └── js/
     ├── carrito.js               → lógica del carrito de compras
     ├── menu.js                  → menú hamburguesa en celular
-    ├── autenticacion.js         → registro, login y sesión de usuario
+    ├── autenticacion.js         → registro, login, sesión de usuario y acceso admin
+    ├── administracion.js        → lógica del panel de administración
     ├── finalizar-compra.js      → resumen del pedido y validación del checkout
     ├── formularios.js           → validación del newsletter y el contacto
-    ├── datos-productos.js       → información de todos los productos (id, nombre, precio, descripción)
+    ├── datos-productos.js       → catálogo base + productos y cambios del admin
     ├── producto-detalle.js      → arma la ficha de producto según la URL (?id=...)
+    ├── actualizar-productos.js  → aplica en el catálogo los cambios hechos por el admin
     ├── datos-blog.js            → contenido de los artículos del blog
     └── blog-detalle.js          → arma el artículo según la URL (?id=...)
 ```

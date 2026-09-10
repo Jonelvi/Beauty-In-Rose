@@ -11,6 +11,10 @@ var REGEX_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 var REGEX_MAYUSCULA = /[A-Z]/;
 var REGEX_NUMERO = /[0-9]/;
 
+/* Cuenta fija de administrador (este sitio no tiene servidor ni base de datos) */
+var ADMIN_CORREO = "admin@beautyinrose.cl";
+var ADMIN_PASSWORD = "Admin1234";
+
 function passwordEsValida(password) {
   if (password.length < 8) {
     return false;
@@ -65,7 +69,11 @@ function obtenerSesion() {
 }
 
 function iniciarSesion(usuario) {
-  var sesion = { nombre: usuario.nombre, correo: usuario.correo };
+  var rol = usuario.rol;
+  if (rol === undefined) {
+    rol = "cliente";
+  }
+  var sesion = { nombre: usuario.nombre, correo: usuario.correo, rol: rol };
   localStorage.setItem(SESION_KEY, JSON.stringify(sesion));
   actualizarNavegacionUsuario();
 }
@@ -75,12 +83,25 @@ function cerrarSesion() {
   actualizarNavegacionUsuario();
 }
 
+function esAdministrador() {
+  var sesion = obtenerSesion();
+  return sesion !== null && sesion.rol === "admin";
+}
+
+/* Se usa en admin.html para no dejar entrar a quien no sea administrador */
+function protegerPaginaAdmin() {
+  if (!esAdministrador()) {
+    window.location.href = "login.html";
+  }
+}
+
 function actualizarNavegacionUsuario() {
   var sesion = obtenerSesion();
   var navLogin = document.getElementById("navLogin");
   var navRegistro = document.getElementById("navRegistro");
   var navUsuario = document.getElementById("navUsuario");
   var navCerrarSesion = document.getElementById("navCerrarSesion");
+  var navAdmin = document.getElementById("navAdmin");
   var saludoUsuario = document.getElementById("saludoUsuario");
 
   if (navLogin === null || navRegistro === null || navUsuario === null || navCerrarSesion === null) {
@@ -94,11 +115,22 @@ function actualizarNavegacionUsuario() {
     navCerrarSesion.classList.remove("oculto");
     var primerNombre = sesion.nombre.split(" ")[0];
     saludoUsuario.textContent = "Hola, " + primerNombre;
+
+    if (navAdmin !== null) {
+      if (sesion.rol === "admin") {
+        navAdmin.classList.remove("oculto");
+      } else {
+        navAdmin.classList.add("oculto");
+      }
+    }
   } else {
     navLogin.classList.remove("oculto");
     navRegistro.classList.remove("oculto");
     navUsuario.classList.add("oculto");
     navCerrarSesion.classList.add("oculto");
+    if (navAdmin !== null) {
+      navAdmin.classList.add("oculto");
+    }
   }
 }
 
@@ -151,7 +183,8 @@ function validarFormularioRegistro() {
     nombre: nombre.value.trim(),
     correo: correoLimpio,
     telefono: document.getElementById("telefonoRegistro").value.trim(),
-    password: password.value
+    password: password.value,
+    rol: "cliente"
   };
   return nuevoUsuario;
 }
@@ -197,6 +230,17 @@ function alEnviarFormularioLogin(evento) {
   }
 
   var correoLimpio = correo.value.trim().toLowerCase();
+
+  if (correoLimpio === ADMIN_CORREO && password.value === ADMIN_PASSWORD) {
+    iniciarSesion({ nombre: "Administrador", correo: ADMIN_CORREO, rol: "admin" });
+    mensajeError.style.color = "#2e7d32";
+    mensajeError.textContent = "¡Bienvenido, Administrador! Redirigiendo...";
+    setTimeout(function () {
+      window.location.href = "admin.html";
+    }, 1000);
+    return;
+  }
+
   var usuario = buscarUsuario(correoLimpio, password.value);
 
   if (usuario === null) {

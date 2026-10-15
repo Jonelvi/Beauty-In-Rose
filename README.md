@@ -4,7 +4,11 @@ Tienda web de cosméticos y cuidado de la piel, desarrollada para la Evaluación
 
 Sitio 100% estático hecho con **HTML5, CSS3 y JavaScript** (sin frameworks ni backend). El carrito, la sesión de usuario y los pedidos se guardan en el `localStorage` del navegador.
 
-## Páginas del sitio
+## Versión 2 (React)
+
+La versión 2 del proyecto está en la carpeta `frontend`, hecha con **React y Bootstrap**, con archivo de datos (CRUD), vistas nuevas (categorías, ofertas, compra exitosa y fallida, panel de administración) y pruebas con **Jasmine y Karma**. Las instrucciones para correrla están en `frontend/README.md` y los documentos de la entrega (ERS V2 y cobertura de testing) en la carpeta `documentos`.
+
+## Páginas del sitio (versión 1, HTML/CSS/JS)
 
 - **Inicio** (`index.html`): producto más popular, productos destacados, video de maquillaje, ofertas del día y newsletter.
 - **Productos** (`productos.html`): catálogo completo, agrupado por categoría.

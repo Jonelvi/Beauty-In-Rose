@@ -1,0 +1,332 @@
+:root {
+  --rosa-claro: #fce4ec;
+  --rosa: #f7cad0;
+  --rosa-medio: #e88ba5;
+  --rosa-oscuro: #6d2149;
+  --sombra: rgba(109, 33, 73, 0.12);
+}
+
+body {
+  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  color: #3a2530;
+  background-color: #fff;
+  background-image: radial-gradient(circle, var(--rosa) 6px, transparent 7px),
+    radial-gradient(circle, var(--rosa-claro) 4px, transparent 5px);
+  background-size: 140px 140px, 90px 90px;
+  background-position: 0 0, 45px 60px;
+}
+
+.contenido-principal {
+  min-height: 70vh;
+}
+
+/* Botones y colores de marca */
+.btn-rose {
+  background-color: var(--rosa-medio);
+  border-color: var(--rosa-medio);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.btn-rose:hover,
+.btn-rose:focus {
+  background-color: var(--rosa-oscuro);
+  border-color: var(--rosa-oscuro);
+  color: #fff;
+}
+
+.btn-outline-rose {
+  border: 2px solid var(--rosa-medio);
+  color: var(--rosa-oscuro);
+  border-radius: 30px;
+  font-weight: 600;
+  background: #fff;
+}
+
+.btn-outline-rose:hover {
+  background-color: var(--rosa-medio);
+  color: #fff;
+}
+
+.bg-rose {
+  background-color: var(--rosa-medio);
+}
+
+.bg-rose-dark {
+  background-color: var(--rosa-oscuro);
+}
+
+.titulo-seccion {
+  color: var(--rosa-oscuro);
+  margin-bottom: 1rem;
+}
+
+.navbar .nav-link {
+  color: #3a2530;
+  font-weight: 500;
+}
+
+.navbar .nav-link.active {
+  color: var(--rosa-oscuro);
+  border-bottom: 2px solid var(--rosa-medio);
+}
+
+.saludo {
+  color: var(--rosa-oscuro) !important;
+  font-weight: 600;
+}
+
+.btn-carrito {
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+/* Tarjetas de producto */
+.tarjeta-producto {
+  border: 1px solid var(--rosa-claro);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px var(--sombra);
+  transition: transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta-producto .card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+.titulo-producto {
+  color: var(--rosa-oscuro);
+  text-decoration: none;
+}
+
+.precio {
+  color: var(--rosa-medio);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.precio-anterior {
+  color: #777;
+  text-decoration: line-through;
+  font-weight: normal;
+  font-size: 0.95rem;
+}
+
+.etiqueta-descuento {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  border-radius: 20px;
+}
+
+.categoria-producto {
+  color: var(--rosa-medio);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Inicio */
+.hero-imagen img {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px var(--sombra);
+}
+
+.etiqueta-popular {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--rosa-oscuro);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.seccion-rosa {
+  background-color: var(--rosa-claro);
+}
+
+.video-maquillaje {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px var(--sombra);
+}
+
+/* Carrito */
+.item-carrito-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cantidad-item {
+  min-width: 36px;
+  color: #3a2530 !important;
+}
+
+.subtotal-item {
+  min-width: 80px;
+  text-align: right;
+}
+
+.aviso-carrito {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--rosa-oscuro);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  z-index: 2000;
+  box-shadow: 0 10px 25px var(--sombra);
+}
+
+/* Checkout */
+.icono-resultado {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+}
+
+.icono-resultado.exito {
+  background: #2e7d32;
+}
+
+.icono-resultado.error {
+  background: #c0355c;
+}
+
+.resumen-compra {
+  max-width: 480px;
+}
+
+/* Blog */
+.portada-blog {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--rosa-claro), var(--rosa));
+  border-radius: 16px 16px 0 0;
+}
+
+.portada-grande {
+  height: 180px;
+  font-size: 4rem;
+  border-radius: 16px;
+}
+
+.fecha-blog {
+  color: var(--rosa-medio);
+  font-weight: 600;
+}
+
+.articulo {
+  max-width: 760px;
+}
+
+/* Nosotros y auth */
+.foto-equipo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px var(--sombra);
+}
+
+.tarjeta-rosa {
+  background: var(--rosa-claro);
+  border: none;
+  border-radius: 16px;
+}
+
+.tarjeta-auth {
+  max-width: 440px;
+  border-radius: 20px;
+}
+
+.categoria-card {
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--rosa-oscuro);
+  box-shadow: 0 6px 18px var(--sombra);
+}
+
+.categoria-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Admin */
+.pill-rose {
+  color: var(--rosa-oscuro);
+  border: 2px solid var(--rosa);
+  border-radius: 30px;
+}
+
+.pill-rose.active {
+  background-color: var(--rosa-medio) !important;
+  border-color: var(--rosa-medio);
+  color: #fff !important;
+}
+
+.miniatura-admin {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.selector-rol {
+  min-width: 130px;
+}
+
+.valor-resumen {
+  color: var(--rosa-oscuro);
+}
+
+/* Footer */
+.footer-rose {
+  background-color: var(--rosa-oscuro);
+  color: var(--rosa-claro);
+}
+
+.footer-rose h5 {
+  color: #fff;
+}
+
+.footer-rose a {
+  color: var(--rosa-claro);
+  text-decoration: none;
+}
+
+.footer-rose a:hover {
+  color: #fff;
+  text-decoration: underline;
+}

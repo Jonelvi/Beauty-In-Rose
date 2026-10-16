@@ -23,11 +23,11 @@ function DetalleProducto() {
       <Link to="/productos" className="d-inline-block mb-3">&larr; Volver a productos</Link>
       <div className="row g-4">
         <div className="col-12 col-md-6">
-          <img src={producto.imagen} alt={producto.nombre} className="img-fluid rounded-4 shadow" />
+          <img src={producto.imagen} alt={producto.nombre} className="img-fluid rounded-4 shadow w-100" />
         </div>
         <div className="col-12 col-md-6">
           <p className="categoria-producto">{producto.categoria}</p>
-          <h1>{producto.nombre}</h1>
+          <h1 className="mb-3">{producto.nombre}</h1>
           <p className="precio fs-3">
             {producto.precioOferta && (
               <span className="precio-anterior me-2">{formatearPrecio(producto.precio)}</span>

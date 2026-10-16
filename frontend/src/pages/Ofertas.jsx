@@ -1,4 +1,5 @@
 import ListaProductos from "../components/ListaProductos";
+import EncabezadoPagina from "../components/EncabezadoPagina";
 import { useCarrito } from "../context/CarritoContext";
 import { useTienda } from "../context/TiendaContext";
 
@@ -8,11 +9,12 @@ function Ofertas() {
   const ofertas = productos.filter((p) => p.precioOferta);
 
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion">Ofertas</h1>
-      <p>Todos los productos con descuento. ¡Aprovecha antes de que se acaben!</p>
-      <ListaProductos productos={ofertas} alAgregar={agregar} />
-    </div>
+    <>
+      <EncabezadoPagina titulo="Ofertas" subtitulo="Todos los productos con descuento. ¡Aprovecha antes de que se acaben!" />
+      <div className="container pb-5">
+        <ListaProductos productos={ofertas} alAgregar={agregar} />
+      </div>
+    </>
   );
 }
 

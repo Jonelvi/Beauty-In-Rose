@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ItemCarrito from "../components/ItemCarrito";
+import EncabezadoPagina from "../components/EncabezadoPagina";
 import { useCarrito } from "../context/CarritoContext";
 import { formatearPrecio } from "../utils/formato";
 
@@ -8,17 +9,20 @@ function Carrito() {
 
   if (items.length === 0) {
     return (
-      <div className="container py-5 text-center">
-        <h1 className="titulo-seccion">Tu carrito</h1>
-        <p>Tu carrito está vacío.</p>
-        <Link to="/productos" className="btn btn-rose">Ver productos</Link>
-      </div>
+      <>
+        <EncabezadoPagina titulo="Tu carrito" />
+        <div className="container py-5 text-center">
+          <p className="fs-5">Tu carrito está vacío.</p>
+          <Link to="/productos" className="btn btn-rose">Ver productos</Link>
+        </div>
+      </>
     );
   }
 
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion">Tu carrito</h1>
+    <>
+      <EncabezadoPagina titulo="Tu carrito" subtitulo="Revisa tus productos antes de pagar." />
+      <div className="container pb-5">
       <div className="row g-4">
         <div className="col-12 col-lg-8">
           <ul className="list-group shadow-sm">
@@ -33,8 +37,8 @@ function Carrito() {
           </ul>
         </div>
         <div className="col-12 col-lg-4">
-          <div className="card shadow-sm">
-            <div className="card-body">
+          <div className="card shadow-sm resumen-sticky">
+            <div className="card-body p-4">
               <h2 className="h5">Resumen</h2>
               <p className="d-flex justify-content-between">
                 <span>Subtotal</span>
@@ -48,7 +52,8 @@ function Carrito() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import BarraBusqueda from "../components/BarraBusqueda";
 import FiltroCategorias from "../components/FiltroCategorias";
 import ListaProductos from "../components/ListaProductos";
+import EncabezadoPagina from "../components/EncabezadoPagina";
 import { useCarrito } from "../context/CarritoContext";
 import { useTienda } from "../context/TiendaContext";
 import { filtrarProductos, obtenerCategorias } from "../utils/filtros";
@@ -19,9 +20,9 @@ function Productos() {
   const visibles = filtrarProductos(productos, busqueda, categoria, orden);
 
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion">Nuestros Productos</h1>
-      <p>Encuentra el producto perfecto para realzar tu belleza natural.</p>
+    <>
+      <EncabezadoPagina titulo="Nuestros Productos" subtitulo="Encuentra el producto perfecto para realzar tu belleza natural." />
+      <div className="container pb-5">
 
       <div className="row g-3 align-items-end">
         <div className="col-12 col-md-8">
@@ -51,7 +52,8 @@ function Productos() {
 
       <p className="text-muted">{visibles.length} producto(s) encontrado(s)</p>
       <ListaProductos productos={visibles} alAgregar={agregar} />
-    </div>
+      </div>
+    </>
   );
 }
 

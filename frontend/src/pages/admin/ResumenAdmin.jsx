@@ -18,7 +18,7 @@ function ResumenAdmin() {
     <div className="row g-4">
       {tarjetas.map((tarjeta) => (
         <div className="col-6 col-lg-4" key={tarjeta.titulo}>
-          <div className="card shadow-sm text-center h-100">
+          <div className="card shadow-sm text-center h-100 tarjeta-metrica">
             <div className="card-body">
               <p className="mb-1">{tarjeta.titulo}</p>
               <p className="display-6 mb-0 valor-resumen">{tarjeta.valor}</p>

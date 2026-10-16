@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EncabezadoPagina from "../components/EncabezadoPagina";
 import { useTienda } from "../context/TiendaContext";
 import { obtenerCategorias } from "../utils/filtros";
 
@@ -7,9 +8,9 @@ function Categorias() {
   const categorias = obtenerCategorias(productos);
 
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion">Categorías</h1>
-      <p>Explora nuestros productos según lo que estés buscando.</p>
+    <>
+      <EncabezadoPagina titulo="Categorías" subtitulo="Explora nuestros productos según lo que estés buscando." />
+      <div className="container pb-5">
 
       <div className="row g-4">
         {categorias.map((categoria) => {
@@ -30,7 +31,8 @@ function Categorias() {
           );
         })}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

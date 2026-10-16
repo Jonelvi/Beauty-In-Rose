@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CampoFormulario from "../components/CampoFormulario";
+import EncabezadoPagina from "../components/EncabezadoPagina";
 import { validarCorreo, validarMensaje, validarNombre } from "../utils/validaciones";
 
 function Contacto() {
@@ -31,10 +32,9 @@ function Contacto() {
   }
 
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion">Contáctanos</h1>
-      <p>¿Tienes dudas o sugerencias? Escríbenos, con gusto te ayudamos.</p>
-
+    <>
+      <EncabezadoPagina titulo="Contáctanos" subtitulo="¿Tienes dudas o sugerencias? Escríbenos, con gusto te ayudamos." />
+      <div className="container pb-5">
       <div className="row g-4">
         <div className="col-12 col-lg-7">
           <form className="card shadow-sm" onSubmit={enviar} noValidate>
@@ -96,7 +96,8 @@ function Contacto() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

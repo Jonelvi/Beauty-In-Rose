@@ -1,3 +1,5 @@
+import EncabezadoPagina from "../components/EncabezadoPagina";
+
 const equipo = [
   { nombre: "Camila Venegas", foto: "/img/equipo/camila-venegas.jpg", rol: "Desarrolladora Web Full Stack" },
   { nombre: "Francisca Escobar", foto: "/img/equipo/francisca-escobar.jpg", rol: "Desarrolladora Web Full Stack" },
@@ -6,9 +8,9 @@ const equipo = [
 
 function Nosotros() {
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion text-center">Sobre Nosotros</h1>
-      <p className="text-center">Belleza natural, cuidado real.</p>
+    <>
+      <EncabezadoPagina titulo="Sobre Nosotros" subtitulo="Belleza natural, cuidado real." />
+      <div className="container pb-5">
 
       <section className="row g-4 align-items-center my-4">
         <div className="col-12 col-md-6">
@@ -44,7 +46,7 @@ function Nosotros() {
         </div>
       </section>
 
-      <section className="seccion-rosa rounded-4 p-4 my-4">
+      <section className="seccion-rosa rounded-4 p-4 p-md-5 my-4">
         <h2 className="text-center">Equipo de Desarrollo</h2>
         <p className="text-center">El equipo detrás del código de este sitio web.</p>
         <div className="row g-4 justify-content-center">
@@ -57,7 +59,8 @@ function Nosotros() {
           ))}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

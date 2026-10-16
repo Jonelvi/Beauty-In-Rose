@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CampoFormulario from "../components/CampoFormulario";
+import EncabezadoPagina from "../components/EncabezadoPagina";
 import { useCarrito } from "../context/CarritoContext";
 import { useSesion } from "../context/SesionContext";
 import { useTienda } from "../context/TiendaContext";
@@ -96,8 +97,9 @@ function Checkout() {
   const envio = datos.entrega === "despacho" ? COSTO_DESPACHO : 0;
 
   return (
-    <div className="container py-4">
-      <h1 className="titulo-seccion">Finalizar compra</h1>
+    <>
+      <EncabezadoPagina titulo="Finalizar compra" subtitulo="Completa tus datos para confirmar el pedido." />
+      <div className="container pb-5">
       <form className="row g-4" onSubmit={pagar} noValidate>
         <div className="col-12 col-lg-7">
           <div className="card shadow-sm mb-4">
@@ -156,8 +158,8 @@ function Checkout() {
         </div>
 
         <div className="col-12 col-lg-5">
-          <div className="card shadow-sm">
-            <div className="card-body">
+          <div className="card shadow-sm resumen-sticky">
+            <div className="card-body p-4">
               <h2 className="h5">Resumen del pedido</h2>
               <ul className="list-unstyled">
                 {items.map((item) => (
@@ -176,7 +178,8 @@ function Checkout() {
           </div>
         </div>
       </form>
-    </div>
+      </div>
+    </>
   );
 }
 

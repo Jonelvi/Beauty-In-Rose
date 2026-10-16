@@ -56,10 +56,11 @@ function Registro() {
   }
 
   return (
-    <div className="container py-5">
+    <div className="pagina-auth py-5">
+      <div className="container">
       <div className="card mx-auto shadow tarjeta-auth">
         <div className="card-body p-4">
-          <h1 className="h3 text-center">Crea tu cuenta</h1>
+          <h1 className="h2 text-center">Crea tu cuenta</h1>
           <p className="text-center">Regístrate para guardar tus datos y agilizar tus compras.</p>
           <form onSubmit={enviar} noValidate>
             <CampoFormulario id="nombreRegistro" etiqueta="Nombre completo" valor={datos.nombre} alCambiar={(v) => cambiar("nombre", v)} error={errores.nombre} autoComplete="name" />
@@ -86,6 +87,7 @@ function Registro() {
             ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
           </p>
         </div>
+      </div>
       </div>
     </div>
   );

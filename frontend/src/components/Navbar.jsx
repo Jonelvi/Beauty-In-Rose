@@ -23,7 +23,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
       <div className="container">
         <Link className="navbar-brand" to="/" onClick={cerrar}>
-          <img src="/img/beauty-in-rose-logo.svg" alt="Beauty in Rose" height="44" />
+          <img src="/img/beauty-in-rose-logo.svg" alt="Beauty in Rose" />
         </Link>
 
         <div className="d-flex align-items-center gap-3 order-lg-3">

@@ -32,10 +32,11 @@ function Login() {
   }
 
   return (
-    <div className="container py-5">
+    <div className="pagina-auth py-5">
+      <div className="container">
       <div className="card mx-auto shadow tarjeta-auth">
         <div className="card-body p-4">
-          <h1 className="h3 text-center">Inicia sesión</h1>
+          <h1 className="h2 text-center">Inicia sesión</h1>
           <p className="text-center">Ingresa con tu cuenta de Beauty in Rose.</p>
           <form onSubmit={enviar} noValidate>
             <CampoFormulario id="correoLogin" etiqueta="Correo electrónico" tipo="email" valor={correo} alCambiar={setCorreo} error={errores.correo} autoComplete="email" />
@@ -47,6 +48,7 @@ function Login() {
             ¿Aún no tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
           </p>
         </div>
+      </div>
       </div>
     </div>
   );

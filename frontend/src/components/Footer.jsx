@@ -6,7 +6,7 @@ function Footer() {
       <div className="container">
         <div className="row g-4">
           <div className="col-12 col-md-6 col-lg-3">
-            <h5>Beauty in Rose</h5>
+            <h5>🎃 Beauty in Rose</h5>
             <p>Tu tienda de belleza y cuidado personal de confianza.</p>
           </div>
           <div className="col-6 col-lg-3">

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AvisoCarrito from "./components/AvisoCarrito";
+import BarraHalloween from "./components/BarraHalloween";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import RutaAdmin from "./components/RutaAdmin";
@@ -27,6 +28,7 @@ import ResumenAdmin from "./pages/admin/ResumenAdmin";
 function App() {
   return (
     <>
+      <BarraHalloween />
       <Navbar />
       <main className="contenido-principal">
         <Routes>

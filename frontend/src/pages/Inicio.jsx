@@ -39,11 +39,14 @@ function Inicio() {
   return (
     <>
       <section className="hero">
+        <span className="murcielago murcielago-1" aria-hidden="true">🦇</span>
+        <span className="murcielago murcielago-2" aria-hidden="true">🦇</span>
+        <span className="murcielago murcielago-3" aria-hidden="true">🎃</span>
         <div className="container">
           <div className="row align-items-center g-5">
             <div className="col-12 col-lg-6 text-center text-lg-start">
-              <span className="hero-etiqueta">✨ Belleza natural, cuidado real</span>
-              <h1>Realza tu belleza natural</h1>
+              <span className="hero-etiqueta">🎃 Especial Halloween</span>
+              <h1>Una belleza de otro mundo</h1>
               <p className="lead mb-4">
                 Descubre nuestra colección de cosméticos y cuidado de la piel pensada para ti.
               </p>

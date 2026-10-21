@@ -1,0 +1,418 @@
+/* =========================================================
+   Tema de Halloween
+   Se carga después de estilos.css y cambia la paleta.
+   Para volver al diseño normal, quitar el import en main.jsx.
+   ========================================================= */
+
+:root {
+  --crema: #150b1f;
+  --superficie: #231332;
+  --rosa-50: #1d1030;
+  --rosa-100: #2b1a40;
+  --rosa-200: #4a2a6b;
+  --rosa-300: #ff9f43;
+  --rosa-500: #ff7a18;
+  --rosa-600: #ff9238;
+  --ciruela: #ffd9a8;
+  --texto: #efe6f7;
+  --texto-suave: #b9a6cc;
+  --borde: #3a2455;
+  --sombra-suave: 0 4px 18px rgba(0, 0, 0, 0.35);
+  --sombra-media: 0 14px 34px rgba(0, 0, 0, 0.5);
+  --fuente-halloween: "Creepster", "Playfair Display", Georgia, serif;
+}
+
+body {
+  background-color: var(--crema);
+  background-image: radial-gradient(circle at 10% 0%, rgba(124, 58, 237, 0.18) 0, transparent 40%),
+    radial-gradient(circle at 95% 30%, rgba(255, 122, 24, 0.1) 0, transparent 35%);
+  background-attachment: fixed;
+}
+
+/* ---------- Barra de anuncio ---------- */
+.barra-halloween {
+  background: linear-gradient(90deg, #7c3aed, #ff7a18, #7c3aed);
+  background-size: 200% 100%;
+  animation: brillo-barra 8s linear infinite;
+  color: #1b0f26;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.75rem;
+}
+
+@keyframes brillo-barra {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+/* ---------- Botones ---------- */
+.btn-rose {
+  color: #1b0f26;
+  box-shadow: 0 6px 20px rgba(255, 122, 24, 0.35);
+}
+
+.btn-rose:hover,
+.btn-rose:focus {
+  color: #1b0f26;
+  box-shadow: 0 8px 26px rgba(255, 122, 24, 0.55);
+}
+
+.btn-rose:disabled {
+  background-color: #6b4a2a;
+  border-color: #6b4a2a;
+  color: #bfa98f;
+}
+
+.btn-outline-rose {
+  background-color: transparent;
+  border-color: var(--rosa-500);
+  color: var(--ciruela);
+}
+
+.btn-outline-rose:hover,
+.btn-outline-rose:focus {
+  background-color: var(--rosa-500);
+  border-color: var(--rosa-500);
+  color: #1b0f26;
+}
+
+/* ---------- Superficies ---------- */
+.card,
+.list-group-item,
+.beneficio,
+.mensaje-vacio,
+.pill-rose {
+  background-color: var(--superficie);
+  color: var(--texto);
+}
+
+.tarjeta-rosa {
+  background: linear-gradient(135deg, #2b1a40, #3a1f57);
+}
+
+.form-control,
+.form-select {
+  background-color: #1a0e29;
+  color: var(--texto);
+  border-color: var(--borde);
+}
+
+.form-control::placeholder {
+  color: #8c7aa3;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #1a0e29;
+  color: var(--texto);
+  border-color: var(--rosa-500);
+  box-shadow: 0 0 0 4px rgba(255, 122, 24, 0.22);
+}
+
+.form-label {
+  color: var(--ciruela);
+}
+
+.text-muted {
+  color: var(--texto-suave) !important;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background-color: rgba(21, 11, 31, 0.92) !important;
+  border-bottom: 1px solid var(--borde);
+}
+
+.navbar-brand img {
+  filter: invert(1) drop-shadow(0 0 6px rgba(255, 122, 24, 0.55));
+}
+
+.navbar .nav-link {
+  color: var(--texto);
+}
+
+.navbar .nav-link:hover {
+  color: var(--rosa-300);
+  background-color: var(--rosa-100);
+}
+
+.navbar .nav-link.active {
+  color: #1b0f26;
+  background-color: var(--rosa-500);
+}
+
+.navbar-toggler {
+  border-color: var(--rosa-500);
+  background-color: var(--rosa-100);
+}
+
+.btn-carrito {
+  background-color: var(--rosa-100);
+  border-color: var(--rosa-500);
+}
+
+.badge.bg-rose {
+  color: #1b0f26;
+}
+
+.saludo {
+  color: var(--rosa-300) !important;
+}
+
+/* ---------- Títulos ---------- */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--ciruela);
+}
+
+.titulo-seccion::after {
+  background: linear-gradient(90deg, #ff7a18, #7c3aed);
+}
+
+.encabezado-pagina {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2b1a40 0%, #1d1030 60%, #150b1f 100%);
+}
+
+.encabezado-pagina::after {
+  content: "🕸️";
+  position: absolute;
+  top: -8px;
+  right: 14px;
+  font-size: 4.2rem;
+  opacity: 0.35;
+}
+
+.encabezado-pagina h1 {
+  text-shadow: 0 0 18px rgba(255, 122, 24, 0.35);
+}
+
+/* ---------- Inicio ---------- */
+.hero {
+  background: radial-gradient(circle at 85% 20%, rgba(124, 58, 237, 0.45) 0, transparent 45%),
+    radial-gradient(circle at 5% 90%, rgba(255, 122, 24, 0.25) 0, transparent 40%), #1a0e29;
+}
+
+.hero h1 {
+  font-family: var(--fuente-halloween);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #ff9238;
+  text-shadow: 0 0 24px rgba(255, 122, 24, 0.55), 0 3px 0 #4a1f00;
+}
+
+.hero-etiqueta {
+  background: var(--rosa-100);
+  border-color: var(--rosa-500);
+  color: var(--rosa-300);
+}
+
+.hero-imagen img {
+  border-color: var(--rosa-500);
+  box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.45), 0 0 50px rgba(255, 122, 24, 0.45);
+}
+
+.etiqueta-popular {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.murcielago {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: volar 9s ease-in-out infinite;
+}
+
+.murcielago-1 {
+  top: 6%;
+  left: 40%;
+}
+
+.murcielago-2 {
+  top: 55%;
+  left: 46%;
+  font-size: 1.4rem;
+  animation-delay: -3s;
+}
+
+.murcielago-3 {
+  top: 8%;
+  right: 8%;
+  font-size: 1.6rem;
+  animation-delay: -6s;
+}
+
+@keyframes volar {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+  50% {
+    transform: translate(26px, 14px) rotate(8deg);
+  }
+}
+
+.beneficio-icono {
+  background: var(--rosa-100);
+}
+
+.beneficio strong {
+  color: var(--ciruela);
+}
+
+.seccion-rosa {
+  background: linear-gradient(180deg, #1d1030 0%, #2a1740 100%);
+}
+
+.video-maquillaje {
+  border-color: var(--rosa-500);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.45);
+}
+
+/* ---------- Productos ---------- */
+.tarjeta-producto {
+  background-color: var(--superficie);
+}
+
+.tarjeta-producto:hover {
+  border-color: var(--rosa-500);
+  box-shadow: 0 0 26px rgba(255, 122, 24, 0.3);
+}
+
+.tarjeta-producto .card-text {
+  color: var(--texto-suave);
+}
+
+.precio {
+  color: var(--rosa-300);
+}
+
+.precio-anterior {
+  color: #8c7aa3;
+}
+
+.etiqueta-descuento {
+  background-color: #7c3aed !important;
+  color: #fff;
+}
+
+.categoria-producto {
+  color: var(--rosa-300);
+}
+
+/* ---------- Tablas y admin ---------- */
+.table {
+  --bs-table-color: var(--texto);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--borde);
+  color: var(--texto);
+}
+
+.table thead th {
+  background: #2b1a40;
+  color: var(--ciruela);
+  border-bottom-color: var(--rosa-500);
+}
+
+.table tbody tr:hover {
+  background-color: #2b1a40;
+}
+
+.pill-rose {
+  border-color: var(--rosa-200);
+}
+
+.pill-rose:hover {
+  background: var(--rosa-100);
+}
+
+.pill-rose.active {
+  color: #1b0f26 !important;
+}
+
+.tarjeta-metrica {
+  border-left-color: var(--rosa-500);
+}
+
+/* ---------- Varios ---------- */
+.portada-blog {
+  background: linear-gradient(135deg, #3a1f57, #7c3aed);
+}
+
+.fecha-blog {
+  color: var(--rosa-300);
+}
+
+.foto-equipo {
+  border-color: var(--rosa-500);
+}
+
+.pagina-auth {
+  background: radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.4) 0, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(255, 122, 24, 0.25) 0, transparent 38%), var(--crema);
+}
+
+.categoria-card {
+  color: var(--ciruela);
+}
+
+.categoria-card:hover {
+  color: var(--ciruela);
+  box-shadow: 0 0 26px rgba(255, 122, 24, 0.3);
+}
+
+.aviso-carrito {
+  background: #7c3aed;
+}
+
+.resumen-compra .card-body,
+.card-body {
+  color: var(--texto);
+}
+
+.icono-resultado.exito {
+  background: #2e8b57;
+}
+
+/* ---------- Footer ---------- */
+.footer-rose {
+  background: linear-gradient(180deg, #100717 0%, #07030b 100%);
+  border-top: 2px solid var(--rosa-500);
+  color: var(--texto-suave);
+}
+
+.footer-rose h5 {
+  color: var(--rosa-300);
+}
+
+.footer-rose a {
+  color: var(--texto-suave);
+}
+
+.footer-rose a:hover {
+  color: var(--rosa-300);
+}
+
+.invalid-feedback,
+.text-danger {
+  color: #ff7b8f !important;
+}
+
+/* Si la persona prefiere menos movimiento, se apagan las animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .murcielago,
+  .barra-halloween {
+    animation: none;
+  }
+}

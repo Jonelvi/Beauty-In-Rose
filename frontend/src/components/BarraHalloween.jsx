@@ -5,7 +5,7 @@ function BarraHalloween() {
   return (
     <div className="barra-halloween">
       🎃 Especial Halloween: hasta 25% de descuento en productos seleccionados 🦇{" "}
-      <Link to="/ofertas" className="text-dark text-decoration-underline">Ver ofertas</Link>
+      <Link to="/ofertas" className="text-decoration-underline">Ver ofertas</Link>
     </div>
   );
 }

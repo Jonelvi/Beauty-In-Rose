@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ListaProductos from "../components/ListaProductos";
 import { useCarrito } from "../context/CarritoContext";
 import { useTienda } from "../context/TiendaContext";
-import { validarCorreo } from "../utils/validaciones";
+import { validarCorreoPermitido } from "../utils/validaciones";
 
 const beneficios = [
   { icono: "🚚", titulo: "Envío a todo Chile", texto: "Despacho a domicilio o retiro en tienda" },
@@ -25,7 +25,7 @@ function Inicio() {
 
   function suscribirse(evento) {
     evento.preventDefault();
-    const error = validarCorreo(correo);
+    const error = validarCorreoPermitido(correo);
     if (error !== "") {
       setMensaje(error);
       setEsError(true);

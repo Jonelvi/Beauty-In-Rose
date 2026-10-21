@@ -3,16 +3,14 @@
    Validación del newsletter y del contacto
    ========================================= */
 
-var REGEX_CORREO_SIMPLE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 function alEnviarNewsletter(evento) {
   evento.preventDefault();
   var formNewsletter = document.getElementById("formNewsletter");
   var mensajeNewsletter = document.getElementById("mensajeNewsletter");
   var correo = document.getElementById("correoNewsletter");
 
-  if (!REGEX_CORREO_SIMPLE.test(correo.value.trim())) {
-    mensajeNewsletter.textContent = "Ingresa un correo electrónico válido.";
+  if (!REGEX_CORREO_PERMITIDO.test(correo.value.trim())) {
+    mensajeNewsletter.textContent = MENSAJE_CORREO_PERMITIDO;
     correo.focus();
     return;
   }
@@ -37,8 +35,8 @@ function alEnviarContacto(evento) {
     return;
   }
 
-  if (!REGEX_CORREO_SIMPLE.test(correo.value.trim())) {
-    mensajeContactoError.textContent = "Ingresa un correo electrónico válido.";
+  if (!REGEX_CORREO_PERMITIDO.test(correo.value.trim())) {
+    mensajeContactoError.textContent = MENSAJE_CORREO_PERMITIDO;
     correo.focus();
     return;
   }

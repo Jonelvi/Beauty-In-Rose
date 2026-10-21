@@ -8,6 +8,9 @@
 var USUARIOS_KEY = "beautyInRoseUsuarios";
 var SESION_KEY = "beautyInRoseSesion";
 var REGEX_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/* Solo se aceptan correos de gmail y de duocuc (el login queda libre por la cuenta admin) */
+var REGEX_CORREO_PERMITIDO = /^[^\s@]+@(gmail\.com|duocuc\.cl)$/i;
+var MENSAJE_CORREO_PERMITIDO = "Ingresa un correo electrónico válido (solo @gmail.com o @duocuc.cl).";
 var REGEX_MAYUSCULA = /[A-Z]/;
 var REGEX_NUMERO = /[0-9]/;
 
@@ -149,8 +152,8 @@ function validarFormularioRegistro() {
   }
 
   var correoLimpio = correo.value.trim().toLowerCase();
-  if (!REGEX_CORREO.test(correoLimpio)) {
-    mensajeError.textContent = "Ingresa un correo electrónico válido.";
+  if (!REGEX_CORREO_PERMITIDO.test(correoLimpio)) {
+    mensajeError.textContent = MENSAJE_CORREO_PERMITIDO;
     correo.focus();
     return null;
   }

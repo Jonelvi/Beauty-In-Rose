@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CampoFormulario from "../components/CampoFormulario";
 import EncabezadoPagina from "../components/EncabezadoPagina";
-import { validarCorreo, validarMensaje, validarNombre } from "../utils/validaciones";
+import { validarCorreoPermitido, validarMensaje, validarNombre } from "../utils/validaciones";
 
 function Contacto() {
   const [nombre, setNombre] = useState("");
@@ -15,7 +15,7 @@ function Contacto() {
     evento.preventDefault();
     const nuevos = {
       nombre: validarNombre(nombre),
-      correo: validarCorreo(correo),
+      correo: validarCorreoPermitido(correo),
       asunto: asunto === "" ? "Selecciona un asunto para tu mensaje." : "",
       mensaje: validarMensaje(mensaje),
     };

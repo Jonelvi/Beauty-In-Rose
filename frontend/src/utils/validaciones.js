@@ -17,6 +17,17 @@ export function validarCorreo(correo) {
   return "";
 }
 
+// Solo se aceptan correos de gmail y de duocuc (registro, contacto, compra y newsletter).
+// El login usa validarCorreo porque la cuenta de administrador es @beautyinrose.cl.
+const REGEX_CORREO_PERMITIDO = /^[^\s@]+@(gmail\.com|duocuc\.cl)$/i;
+
+export function validarCorreoPermitido(correo) {
+  if (!REGEX_CORREO_PERMITIDO.test(correo.trim())) {
+    return "Ingresa un correo electrónico válido (solo @gmail.com o @duocuc.cl).";
+  }
+  return "";
+}
+
 export function validarPassword(password) {
   if (password.length < 8) {
     return "La contraseña debe tener al menos 8 caracteres.";

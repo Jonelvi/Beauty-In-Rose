@@ -4,6 +4,7 @@ import { filtrarProductos, obtenerCategorias } from "../utils/filtros";
 import { formatearPrecio, generarId, porcentajeDescuento, precioFinal } from "../utils/formato";
 import {
   validarCorreo,
+  validarCorreoPermitido,
   validarMensaje,
   validarNombre,
   validarPassword,
@@ -40,6 +41,16 @@ describe("validaciones", () => {
   it("validarCorreo acepta un correo correcto y rechaza uno incorrecto", () => {
     expect(validarCorreo("ana@correo.com")).toBe("");
     expect(validarCorreo("ana@correo")).not.toBe("");
+  });
+
+  it("validarCorreoPermitido solo acepta gmail.com y duocuc.cl", () => {
+    expect(validarCorreoPermitido("ana@gmail.com")).toBe("");
+    expect(validarCorreoPermitido("ana@duocuc.cl")).toBe("");
+    expect(validarCorreoPermitido("ANA@Gmail.com")).toBe("");
+    expect(validarCorreoPermitido("ana@hotmail.com")).not.toBe("");
+    expect(validarCorreoPermitido("ana@gmail.com.ar")).not.toBe("");
+    expect(validarCorreoPermitido("ana@mail.duocuc.cl")).not.toBe("");
+    expect(validarCorreoPermitido("ana@gmail")).not.toBe("");
   });
 
   it("validarPassword exige 8 caracteres, una mayúscula y un número", () => {

@@ -39,7 +39,7 @@ describe("Contacto", () => {
   it("muestra el mensaje de éxito cuando los datos son válidos", () => {
     const contenedor = renderizarConApp(<Contacto />);
     escribir(contenedor.querySelector("#nombreContacto"), "Ana Pérez");
-    escribir(contenedor.querySelector("#correoContacto"), "ana@correo.com");
+    escribir(contenedor.querySelector("#correoContacto"), "ana@gmail.com");
     elegirOpcion(contenedor.querySelector("#asuntoContacto"), "consulta");
     escribir(contenedor.querySelector("#mensajeContacto"), "Quisiera saber más de sus productos");
     enviarFormulario(contenedor.querySelector("form"));
@@ -134,7 +134,7 @@ describe("Checkout", () => {
 
   function llenarFormulario(contenedor, tarjeta) {
     escribir(contenedor.querySelector("#nombre"), "Ana Pérez");
-    escribir(contenedor.querySelector("#correo"), "ana@correo.com");
+    escribir(contenedor.querySelector("#correo"), "ana@gmail.com");
     escribir(contenedor.querySelector("#telefono"), "912345678");
     escribir(contenedor.querySelector("#direccion"), "Calle Falsa 123");
     escribir(contenedor.querySelector("#comuna"), "Providencia");
@@ -231,24 +231,40 @@ describe("Registro", () => {
 
   it("muestra error cuando las contraseñas no coinciden", () => {
     const contenedor = renderizarConApp(<Registro />);
-    llenar(contenedor, "ana@correo.com", "OtraClave123");
+    llenar(contenedor, "ana@gmail.com", "OtraClave123");
     enviarFormulario(contenedor.querySelector("form"));
     expect(contenedor.textContent).toContain("Las contraseñas no coinciden");
   });
 
-  it("crea el usuario con rol cliente cuando los datos son válidos", () => {
+  it("rechaza correos que no sean de gmail ni de duocuc", () => {
     const contenedor = renderizarConApp(<Registro />);
-    llenar(contenedor, "ana@correo.com", "Clave1234");
+    llenar(contenedor, "ana@hotmail.com", "Clave1234");
+    enviarFormulario(contenedor.querySelector("form"));
+    expect(contenedor.textContent).toContain("solo @gmail.com o @duocuc.cl");
+    expect(localStorage.getItem("bir_usuarios")).not.toContain("ana@hotmail.com");
+  });
+
+  it("acepta correos de duocuc", () => {
+    const contenedor = renderizarConApp(<Registro />);
+    llenar(contenedor, "ana@duocuc.cl", "Clave1234");
     enviarFormulario(contenedor.querySelector("form"));
     const usuarios = JSON.parse(localStorage.getItem("bir_usuarios"));
-    const ana = usuarios.find((u) => u.correo === "ana@correo.com");
+    expect(usuarios.some((u) => u.correo === "ana@duocuc.cl")).toBe(true);
+  });
+
+  it("crea el usuario con rol cliente cuando los datos son válidos", () => {
+    const contenedor = renderizarConApp(<Registro />);
+    llenar(contenedor, "ana@gmail.com", "Clave1234");
+    enviarFormulario(contenedor.querySelector("form"));
+    const usuarios = JSON.parse(localStorage.getItem("bir_usuarios"));
+    const ana = usuarios.find((u) => u.correo === "ana@gmail.com");
     expect(ana.rol).toBe("cliente");
   });
 
   it("avisa cuando el correo ya está registrado", () => {
-    crearUsuario({ nombre: "Ana Pérez", correo: "ana@correo.com", password: "Clave1234" });
+    crearUsuario({ nombre: "Ana Pérez", correo: "ana@gmail.com", password: "Clave1234" });
     const contenedor = renderizarConApp(<Registro />);
-    llenar(contenedor, "ana@correo.com", "Clave1234");
+    llenar(contenedor, "ana@gmail.com", "Clave1234");
     enviarFormulario(contenedor.querySelector("form"));
     expect(contenedor.textContent).toContain("ya está registrado");
   });

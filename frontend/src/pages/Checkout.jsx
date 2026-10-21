@@ -7,7 +7,7 @@ import { useSesion } from "../context/SesionContext";
 import { useTienda } from "../context/TiendaContext";
 import { formatearPrecio } from "../utils/formato";
 import {
-  validarCorreo,
+  validarCorreoPermitido,
   validarNombre,
   validarTarjeta,
   validarTelefono,
@@ -42,7 +42,7 @@ function Checkout() {
   function validar() {
     const nuevos = {};
     nuevos.nombre = validarNombre(datos.nombre);
-    nuevos.correo = validarCorreo(datos.correo);
+    nuevos.correo = validarCorreoPermitido(datos.correo);
     nuevos.telefono = validarTelefono(datos.telefono);
     if (datos.entrega === "despacho") {
       nuevos.direccion = datos.direccion.trim().length < 5 ? "Ingresa tu dirección de envío." : "";

@@ -106,7 +106,6 @@ function alEnviarFormularioCheckout(evento) {
   var comuna = document.getElementById("comunaCheckout");
   var ciudad = document.getElementById("ciudadCheckout");
   var mensajeError = document.getElementById("mensajeCheckoutError");
-  var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (nombre.value.trim().length < 3) {
     mensajeError.textContent = "Ingresa tu nombre completo.";
@@ -114,8 +113,8 @@ function alEnviarFormularioCheckout(evento) {
     return;
   }
 
-  if (!regexCorreo.test(correo.value.trim())) {
-    mensajeError.textContent = "Ingresa un correo electrónico válido.";
+  if (!REGEX_CORREO_PERMITIDO.test(correo.value.trim())) {
+    mensajeError.textContent = MENSAJE_CORREO_PERMITIDO;
     correo.focus();
     return;
   }

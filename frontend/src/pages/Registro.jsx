@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import CampoFormulario from "../components/CampoFormulario";
 import { useSesion } from "../context/SesionContext";
 import { useTienda } from "../context/TiendaContext";
-import { validarCorreo, validarNombre, validarPassword } from "../utils/validaciones";
+import { validarCorreoPermitido, validarNombre, validarPassword } from "../utils/validaciones";
 
 function Registro() {
   const { registrarse } = useSesion();
@@ -27,7 +27,7 @@ function Registro() {
     evento.preventDefault();
     const nuevos = {
       nombre: validarNombre(datos.nombre),
-      correo: validarCorreo(datos.correo),
+      correo: validarCorreoPermitido(datos.correo),
       password: validarPassword(datos.password),
       confirmar: datos.password !== datos.confirmar ? "Las contraseñas no coinciden." : "",
       terminos: datos.terminos ? "" : "Debes aceptar los términos y condiciones.",
